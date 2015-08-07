@@ -1,0 +1,14 @@
+{
+  "name": "StudentsApp",
+  "app_id": "8d3949f8",
+  "proxies": [
+    {
+      "path": "/auth",
+      "proxyUrl": "https://learn.fullstackacademy.com/auth"
+    },
+    {
+      "path": "/api",
+      "proxyUrl": "https://learn.fullstackacademy.com/api"
+    }
+  ]
+}
