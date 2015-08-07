@@ -7,11 +7,15 @@ angular.module('starter.controllers', [])
   // }
 
   $scope.creds = {
-    email: "@fullstackacademy.com",
+    email: "",
     password: ""
   };
 
   $scope.login = function() {
+    if($scope.creds.email.indexOf("@") == -1) {
+      $scope.creds.email += "@fullstackacademy.com";
+    }
+
     $http.post(BaseURL + '/auth/local', {
       email: $scope.creds.email,
       password: $scope.creds.password
@@ -46,7 +50,6 @@ angular.module('starter.controllers', [])
       $scope.cohorts = cohorts;
       // $scope.dataLoaded = true;
       $scope.$broadcast('scroll.refreshComplete')
-      $scope.$apply();
 
     })
   }
@@ -67,7 +70,6 @@ angular.module('starter.controllers', [])
       .then(function(members) {
         $scope.members = members;
         $scope.$broadcast('scroll.refreshComplete')
-        $scope.$apply();
       })  
   };
 

@@ -11,8 +11,8 @@
     <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshMembers()">
     </ion-refresher>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="member in members | orderBy:'fullName' " type="item-text-wrap" href="#/tab/student/{{member._id}}">
-        <img ng-src="{{currentPhoto(member)}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right student-list-item" ng-repeat="member in members | orderBy:'fullName' " type="item-text-wrap" href="#/tab/student/{{member._id}}">
+        <img class="student-photo" ng-src="{{currentPhoto(member)}}">
         <h2>{{member.fullName}}</h2>
         <p>{{member.email}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
