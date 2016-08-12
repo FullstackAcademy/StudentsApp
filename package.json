@@ -5,7 +5,8 @@
   "scripts": {
     "start": null,
     "setup-ios": "ionic platform add ios && ionic build ios && ionic emulate ios",
-    "setup-android": "ionic platform add android && ionic build android && ionic emulate android"
+    "setup-android": "ionic platform add android && ionic build android && ionic emulate android",
+    "ios": "ionic emulate ios"
   },
   "dependencies": {
     "gulp": "^3.5.6",

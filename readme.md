@@ -15,4 +15,8 @@ You may be prompted to install further packages, globally, by Cordova; please fo
 
 2. Run `npm install` before attempting to run the application.
 
-3. Run `npm run setup-[platform]` to start the application in the appropriate platform emulator.
+3. Run `npm run setup-ios` to build the application in the appropriate platform simulator.
+
+##Running the App
+
+Once you have followed the installation instructions above, run `npm run ios` to start the simulator
