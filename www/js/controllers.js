@@ -37,7 +37,6 @@ angular.module('starter.controllers', [])
   // listen for the $ionicView.enter event:
   //
 
-
   $scope.refreshCohorts = function() {
     // $scope.dataLoaded = false;
     // debugger;
@@ -70,7 +69,7 @@ angular.module('starter.controllers', [])
       .then(function(members) {
         $scope.members = members;
         $scope.$broadcast('scroll.refreshComplete')
-      })  
+      })
   };
 
   $scope.$on('$ionicView.enter', function(e) {
@@ -90,11 +89,11 @@ angular.module('starter.controllers', [])
   $scope.currentPhoto = Cohort.getPhoto;
 
 
-  $scope.newPhoto = function() { 
-    navigator.camera.getPicture(onSuccess, onFail, { 
-      allowEdit: true, 
+  $scope.newPhoto = function() {
+    navigator.camera.getPicture(onSuccess, onFail, {
+      allowEdit: true,
       quality: 70,
-      destinationType: Camera.DestinationType.DATA_URL 
+      destinationType: Camera.DestinationType.DATA_URL
     });
 
     function onSuccess(imageURI) {
