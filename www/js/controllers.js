@@ -23,11 +23,11 @@ angular.module('starter.controllers', [])
       window.localStorage['token'] = response.data.token;
       console.log("Token", response.data.token);
       $rootScope.token = response.data.token;
-      $state.go('tab.cohorts')
+      $state.go('tab.cohorts');
     }, function(err) {
       console.dir(err);
     });
-  }
+  };
 })
 
 .controller('CohortsCtrl', function($scope, $http, Cohort, BaseURL) {

@@ -23,12 +23,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   $rootScope.$on('loading:show', function() {
-    $ionicLoading.show({template: '<p>Loading...</p><ion-spinner></ion-spinner>'})
-  })
+    $ionicLoading.show({template: '<p>Loading...</p><ion-spinner></ion-spinner>'});
+  });
 
   $rootScope.$on('loading:hide', function() {
-    $ionicLoading.hide()
-  })
+    $ionicLoading.hide();
+  });
 })
 
 .factory('authInterceptor', function($rootScope, $q, $location) {
@@ -87,12 +87,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           return response;
         }
 
-      }
-    }); 
+      };
+    });
     // http://stackoverflow.com/questions/22537311/angular-ui-router-login-authentication
     function authenticate($q, $rootScope, $state, $timeout) {
       if(window.localStorage['token']) {
-        console.log("Using localStorage token")
+        console.log("Using localStorage token");
         $rootScope.token = window.localStorage['token'];
       }
       if($rootScope.token) {
@@ -100,7 +100,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       } else {
         $timeout(function() {
           $state.go('login');
-        })
+        });
         return $q.reject();
       }
     }
@@ -132,7 +132,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           templateUrl: 'templates/tab-cohorts.html',
           controller: 'CohortsCtrl'
         }
-      }, 
+      },
       resolve: {
         authenticate: authenticate
       }
@@ -160,8 +160,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
 
     })
-
-
 
     .state('tab.account', {
       url: '/account',
