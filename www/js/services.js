@@ -30,12 +30,12 @@ angular.module('starter.services', [])
 
     return {
       loadCohorts: function() {
-        var inActiveStatuses = ['future','flight','alum'];
+        var inactiveStatuses = ['future','flight','alum'];
 
         return $http.get(BaseURL + "/api/cohorts")
           .then(function(res) {
             cohorts = res.data.filter(function(cohort){
-              return inActiveStatuses.indexOf(cohort.status) === -1;
+              return inactiveStatuses.indexOf(cohort.status) === -1;
             });
 
             return cohorts; // cohorts
