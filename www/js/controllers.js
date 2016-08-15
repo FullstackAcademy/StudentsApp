@@ -23,11 +23,11 @@ angular.module('starter.controllers', [])
       window.localStorage['token'] = response.data.token;
       console.log("Token", response.data.token);
       $rootScope.token = response.data.token;
-      $state.go('tab.cohorts')
+      $state.go('tab.cohorts');
     }, function(err) {
       console.dir(err);
     });
-  }
+  };
 })
 
 .controller('CohortsCtrl', function($scope, $http, Cohort, BaseURL) {
@@ -36,7 +36,6 @@ angular.module('starter.controllers', [])
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
   //
-
 
   $scope.refreshCohorts = function() {
     // $scope.dataLoaded = false;
@@ -70,7 +69,7 @@ angular.module('starter.controllers', [])
       .then(function(members) {
         $scope.members = members;
         $scope.$broadcast('scroll.refreshComplete')
-      })  
+      })
   };
 
   $scope.$on('$ionicView.enter', function(e) {
@@ -90,11 +89,11 @@ angular.module('starter.controllers', [])
   $scope.currentPhoto = Cohort.getPhoto;
 
 
-  $scope.newPhoto = function() { 
-    navigator.camera.getPicture(onSuccess, onFail, { 
-      allowEdit: true, 
+  $scope.newPhoto = function() {
+    navigator.camera.getPicture(onSuccess, onFail, {
+      allowEdit: true,
       quality: 70,
-      destinationType: Camera.DestinationType.DATA_URL 
+      destinationType: Camera.DestinationType.DATA_URL
     });
 
     function onSuccess(imageURI) {

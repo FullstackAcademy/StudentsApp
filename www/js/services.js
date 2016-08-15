@@ -22,7 +22,7 @@ angular.module('starter.services', [])
       getObject: function(key) {
         return JSON.parse($window.localStorage[key] || '{}');
       }
-    }
+    };
   }])
   .factory('Cohort', function($q, $http, BaseURL) {
     var cohorts;
@@ -30,10 +30,15 @@ angular.module('starter.services', [])
 
     return {
       loadCohorts: function() {
+        var inactiveStatuses = ['future','flight','alum'];
+
         return $http.get(BaseURL + "/api/cohorts")
-          .then(function(data) {
-            cohorts = data.data;
-            return data.data; // cohorts
+          .then(function(res) {
+            cohorts = res.data.filter(function(cohort){
+              return inactiveStatuses.indexOf(cohort.status) === -1;
+            });
+
+            return cohorts; // cohorts
           });
       },
       getCohort: function(id) {
@@ -47,8 +52,8 @@ angular.module('starter.services', [])
           .then(function(data) {
             data.data.forEach(function(student) {
               members[student._id] = student;
-            })
-            return data.data
+            });
+            return data.data;
           });
 
       },
@@ -60,7 +65,7 @@ angular.module('starter.services', [])
         return student;
       },
       getPhoto: function(student, imageURI) {
-        // this converts the base64 data into something that 
+        // this converts the base64 data into something that
         // can be shown in a data-url
         function getPhotoUrl() {
           if (imageURI) {
@@ -73,5 +78,5 @@ angular.module('starter.services', [])
         return getPhotoUrl() || (student && student.photo_url && s3 + student.photo_url) || (student && student.github && student.github.avatar_url) || 'https://placekitten.com/g/121/121';
       }
 
-    }
-  })
+    };
+  });
